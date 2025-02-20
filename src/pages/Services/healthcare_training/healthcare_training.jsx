@@ -3,6 +3,7 @@ import { Footer } from "../../../components/Footer";
 import { Navbar } from "../../../components/Navbar";
 import TrainingImg from "../../../images/healthcare_recruitment.webp";
 import "./healthcare_training.css";
+import Training_Products from "../../../components/training_products/training_products";
 const Healthcare_Training = () => {
   return (
     <>
@@ -91,6 +92,7 @@ const Healthcare_Training = () => {
             </div>
           </div>
         </div>
+        <Training_Products />
       </div>
       <Footer />
     </>

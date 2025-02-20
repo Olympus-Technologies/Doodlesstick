@@ -12,7 +12,7 @@ const Services = () => {
         "At Doodles Stick Limited, we provide supported living services that give people choice, respect, independence, and quality of life. We believe people have the right to live the life they choose for themselves in their own homes, with their own tenancies.",
       description2:
         "We ensure that people feel safe in their environment, people get the right support that will enable them to fulfil life aspirations and successfully live within the community.",
-      link: "/supported_living",
+      link: "/supported-living",
     },
     {
       icon: "fa-solid fa-user-nurse",
@@ -21,7 +21,7 @@ const Services = () => {
         "Doodles Stick Limited provides specialist home care services to people of all adult ages within the areas of Northampton shire, Milton Keynes, Bedfordshire, Leicestershire, Buckinghamshire, and surrounding areas.",
       description2:
         "We have experience supporting people of different health and social care needs including learning disabilities, autism, mental illness, dementia, sensory impairment, physical disabilities and more.",
-      link: "/domiciliary_care",
+      link: "/domiciliary-care",
     },
     {
       icon: "fa-regular fa-clock",
@@ -30,7 +30,7 @@ const Services = () => {
         "We provide bespoke and carefully structured care that ensures that service users’ needs are met in their own home. It is a popular alternative to residential care.",
       description2:
         "The services included in live-in care is not limited to a set of duties, task, and responsibilities, but tailored to meet everyone's needs.",
-      link: "/live_in_care",
+      link: "/live-in-care",
     },
     {
       icon: "fa-solid fa-id-card-clip",
@@ -39,7 +39,7 @@ const Services = () => {
         "We recruit a wide range of healthcare professionals who are then placed with other care facilities to work as permanent, contract or temporary agency staffing basis.",
       description2:
         "We recruit: Healthcare Assistants, Support workers, Nurses, etc.",
-      link: "/healthcare_recruitment",
+      link: "/healthcare-recruitment",
     },
     {
       icon: "fa-solid fa-laptop-medical",
@@ -47,7 +47,7 @@ const Services = () => {
       description1:
         "We are subject matter experts in the industry and as a result we are happy to support others in their healthcare business projects.",
       description2: "",
-      link: "/healthcare_business_consultation",
+      link: "/healthcare-business-consultation",
     },
     {
       icon: "fa-solid fa-book-medical",
@@ -55,7 +55,7 @@ const Services = () => {
       description1:
         "We are fully accredited to provide face to face training to our staff in health and social care topics including the following: People Movers, moving and handling, First Aid, Adult Basic life support, COSHH Awareness, Dementia Awareness, Diabetes Awareness",
       description2: "",
-      link: "/healthcare_training",
+      link: "/healthcare-training",
     },
   ];
 

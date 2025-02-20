@@ -46,9 +46,20 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="address-icon">
-                    <i class="fas fa-map-marker-alt"></i>Suite 8. 20-30A,
-                    Abington street, Northampton. NN1 2AJ
+                  <a className="address-icon"
+                   href="https://www.google.com/maps/search/?api=1&query=Suite+G7,
+                    +Moulton+Park+Business+Centre,
+                    +Redhouse+Road,
+                    +Northampton,
+                    +NN3+6AQ."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i class="fas fa-map-marker-alt"></i>Suite G7,
+                    Moulton Park Business Centre,
+                    Redhouse Road,
+                    Northampton,
+                    NN3 6AQ.
                   </a>
                 </li>
               </ul>
@@ -57,42 +68,42 @@ export function Footer() {
               <h4>Our Services</h4>
               <ul>
                 <li>
-                  <Link to="/supported_living">Supported Living</Link>
+                  <Link to="/supported-living">Supported Living</Link>
                 </li>
                 <li>
-                  <Link to="/domiciliary_care">Domiciliary Care</Link>
+                  <Link to="/domiciliary-care">Domiciliary Care</Link>
                 </li>
                 <li>
-                  <Link to="/live_in_care">Live in Care/24hrs</Link>
+                  <Link to="/live-in-care">Live in Care/24hrs</Link>
                 </li>
                 <li>
-                  <Link to="/healthcare_recruitment">
+                  <Link to="/healthcare-recruitment">
                     Healthcare Recruitment
                   </Link>
                 </li>
                 <li>
-                  <Link to="/healthcare_business_consultation">
+                  <Link to="/healthcare-business-consultation">
                     Healthcare Business Consultation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/healthcare_training">Healthcare Training</Link>
+                  <Link to="/healthcare-training">Healthcare Training</Link>
                 </li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>follow us</h4>
               <div className="social-links">
-                <a href="#">
+                <a href="/">
                   <img src={FB} alt="Facebook" />
                 </a>
-                <a href="#">
+                <a href="/">
                   <img src={Insta} alt="Instagram" />
                 </a>
-                <a href="#">
+                <a href="/">
                   <img src={Whatsapp} alt="Whatsapp" />
                 </a>
-                <a href="#">
+                <a href="/">
                   <img src={X} alt="X" />
                 </a>
               </div>

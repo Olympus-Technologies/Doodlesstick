@@ -16,62 +16,72 @@ import Supported_Living from "./pages/Services/supported_living/supported_living
 import { Vacancies } from "./pages/Vacancies/Vacancies";
 import SupportedLiving from "./pages/Services/supported_living/SupportedLiving";
 import { HeadProvider } from "react-head";
+import { Job } from "./pages/Vacancies/Job";
+import ComingSoon from "./components/training_products/coming_soon";
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Home />,
-	},
-	{
-		path: "/services",
-		element: <Services />,
-	},
-	{
-		path: "/vacancies",
-		element: <Vacancies />,
-	},
-	{
-		path: "/contact-us",
-		element: <Contact />,
-	},
-	{
-		path: "/about-us",
-		element: <About />,
-	},
-	{
-		path: "/supported-living",
-		element: <SupportedLiving />,
-	},
-	{
-		path: "/domiciliary-care",
-		element: <Domiciliary_Care />,
-	},
-	{
-		path: "/live-in-care",
-		element: <Live_In_Care />,
-	},
-	{
-		path: "/healthcare-recruitment",
-		element: <Healthcare_Recruitment />,
-	},
-	{
-		path: "/healthcare-business-consultation",
-		element: <Healthcare_Business_Consultation />,
-	},
-	{
-		path: "/healthcare-training",
-		element: <Healthcare_Training />,
-	},
-	{
-		path: "/bookings",
-		element: <Bookings />,
-	},
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/services",
+    element: <Services />,
+  },
+  {
+    path: "/vacancies",
+    element: <Vacancies />,
+  },
+  {
+    path: "/contact-us",
+    element: <Contact />,
+  },
+  {
+    path: "/about-us",
+    element: <About />,
+  },
+  {
+    path: "/supported-living",
+    element: <Supported_Living />,
+  },
+  {
+    path: "/domiciliary-care",
+    element: <Domiciliary_Care />,
+  },
+  {
+    path: "/live-in-care",
+    element: <Live_In_Care />,
+  },
+  {
+    path: "/healthcare-recruitment",
+    element: <Healthcare_Recruitment />,
+  },
+  {
+    path: "/healthcare-business-consultation",
+    element: <Healthcare_Business_Consultation />,
+  },
+  {
+    path: "/healthcare-training",
+    element: <Healthcare_Training />,
+  },
+  {
+    path: "/bookings",
+    element: <Bookings />,
+  },
+  {
+    path: "/job",
+    element: <Job />,
+  },
+  {
+    path: "/coming-soon",
+    element: <ComingSoon />
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
-	<StrictMode>
-		<HeadProvider>
-			<RouterProvider router={router} />
-		</HeadProvider>
-	</StrictMode>
+  <StrictMode>
+    <HeadProvider>
+      <RouterProvider router={router} />
+    </HeadProvider>
+  </StrictMode>
 );

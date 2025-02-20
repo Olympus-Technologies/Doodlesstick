@@ -16,6 +16,18 @@
 	width: 100%;
 }
 
+/* CSS for disabled button */
+button[disabled] {
+	cursor: not-allowed;
+	opacity: 0.5; /* Optional: to visually indicate the button is disabled */
+  }
+  
+  /* CSS for disabled input */
+  input[disabled] {
+	cursor: not-allowed;
+	opacity: 0.5; /* Optional: to visually indicate the input is disabled */
+  }
+
 /* User avatar and login section */
 
 .navlinks {

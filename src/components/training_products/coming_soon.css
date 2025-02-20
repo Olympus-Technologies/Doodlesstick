@@ -1,0 +1,33 @@
+.coming-soon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 110px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+}
+
+.back-button:hover {
+    color: #0056b3;
+}
+
+.coming-soon-image {
+    max-width: 80%;
+    height: auto;
+}
+
+h2 {
+    font-size: 44px;
+    font-style: oblique;
+}

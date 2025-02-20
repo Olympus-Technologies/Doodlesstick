@@ -28,7 +28,7 @@ const Domiciliary_Care = () => {
                   disabilities, and more.
                 </li>
                 <li>
-                  We develop personalized support packages which can be provided
+                  We develop personalized support packages, which can be provided
                   from a few hours a day to 24 hours round-the-clock support.
                 </li>
                 <li>
