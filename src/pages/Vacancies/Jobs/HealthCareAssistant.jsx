@@ -22,7 +22,7 @@ export default function HealthCareAssistant() {
           <p>Are you a carer looking for work centrally in Northamptonshire?</p>
           <p>Are you a carer who isn’t being paid a competitive and deserving rate?</p>
           <p>If you answer yes to these questions, then why not consider a career Doodles Stick Limited. We have plenty of work / Shifts available.</p>
-          <p>We offer a competitive pay rate of £11.08 per hour.</p>
+          <p>We offer a competitive pay rate of £12 - £16 per hour.</p>
         </div>
         <p className="subtitle">
           Additional Benefits
