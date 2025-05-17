@@ -95,6 +95,9 @@ export function Navbar() {
 								<Link to="/domiciliary-care">
 									Domiciliary Care
 								</Link>
+								<Link to="/children-care-services">
+									Children Care Services
+								</Link>
 								<Link to="/live-in-care">
 									Live in Care/24hrs
 								</Link>

@@ -1,24 +1,17 @@
-.healthcare-business {
+.domiciliary-care {
     margin-top: 120px;
     /*position: relative;*/
     margin-bottom: 40px;
 }
 
-.healthcare-business-container {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*align-items: flex-start;*/
-    /*width: 100%;*/
-}
-
-.healthcare-business-image {
+.domiciliary-care-image {
     /*position: relative;*/
     /*flex: 1;*/
     /*margin-left: 90px;*/
     padding: 0 40px;
 }
 
-.healthcare-business-image img {
+.domiciliary-care-image img {
     max-width: 1000px;
     width: 100%;
     height: 100%;
@@ -28,7 +21,7 @@
     border-radius: 10px;
 }
 
-.healthcare-business-card {
+.domiciliary-care-card {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -43,94 +36,58 @@
     box-sizing: border-box;
 }
 
-.healthcare-business-card h2 {
+.domiciliary-care-card h2 {
     margin-top: 0;
     margin-bottom: 20px;
+    text-transform: capitalize;
     font-size: 34px;
     font-weight: bold;
     text-align: center;
     color: #fff;
 }
 
-.healthcare-business-card ul {
+.domiciliary-care-card ul {
     color: #fff;
     list-style-type: disc;
     margin: 0;
     padding: 0;
 }
 
-.healthcare-business-card ul li {
+.domiciliary-care-card ul li {
     margin-bottom: 20px;
     font-size: 18px;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-}
-
-
-.care-booking {
-  background-color: white;
-  color: #104a2e;  /* A nice shade of green */
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;  
-}
-
-.care-booking:hover {
-  background-color: #f8f9fa;
-  color: #27ae60;
-  transition: all 0.3s ease; 
-}
-
-
-/* .healthcare-business-booking {
-    padding: 12px 25px;
-    background-color: white;
-    color: #104a2e;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.healthcare-business-booking:hover {
-    background-color: #6ccca4;
-    color: #fff;
-} */
-
 /* Responsive styles */
 @media (max-width: 768px) {
-    .healthcare-business {
+    .domiciliary-care {
         position: relative;
-        margin-bottom: 195vw;
+        margin-bottom: 250vw;
     }
 
-    .healthcare-business-container {
+    .domiciliary-care-container {
         flex-direction: column;
     }
 
-    .healthcare-business-image {
+    .domiciliary-care-image {
         position: relative;
         flex: 1;
         margin-left: 10px;
     }
 
-    .healthcare-business-image img {
+    .domiciliary-care-image img {
         width: 94vw;
         height: 40vw;
         display: block;
         border-radius: 10px;
     }
 
-    .healthcare-business-card {
+    .domiciliary-care-card {
         position: absolute;
         top: 90%;
         right: 0px;
         width: 100%;
-        height: 185vw;
+        height: 250vw;
         padding: 50px;
         background: #104a2e;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -138,7 +95,7 @@
         box-sizing: border-box;
     }
 
-    .healthcare-business-card h2 {
+    .domiciliary-care-card h2 {
         margin-top: 0;
         margin-bottom: 20px;
         text-transform: capitalize;
@@ -148,16 +105,15 @@
         color: #fff;
     }
 
-    .healthcare-business-card ul {
+    .domiciliary-care-card ul {
         color: #fff;
         list-style-type: disc;
         margin: 0;
         padding: 0;
     }
 
-    .healthcare-business-card ul li {
+    .domiciliary-care-card ul li {
         margin-bottom: 20px;
         font-size: 14px;
     }
-
 }

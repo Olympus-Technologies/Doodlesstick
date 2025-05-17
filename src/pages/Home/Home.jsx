@@ -341,47 +341,6 @@ export function Home() {
 					</div>
 				))}
 			</Slider>
-
-			{/* <div class="services-section">
-				<div class="services-container">
-					<div class="service-box">
-						<h3>Supported Living</h3>
-						<Link to="/supported_living">
-							<button class="read-more-btn">Read More</button>
-						</Link>
-					</div>
-					<div class="service-box">
-						<h3>Domiciliary Care</h3>
-						<Link to="/domiciliary_care">
-							<button class="read-more-btn">Read More</button>
-						</Link>
-					</div>
-					<div class="service-box">
-						<h3>Live-In Care</h3>
-						<Link to="/live_in_care">
-							<button class="read-more-btn">Read More</button>
-						</Link>
-					</div>
-					<div class="service-box">
-						<h3>Healthcare Recruitment</h3>
-						<Link to="/healthcare_recruitment">
-							<button class="read-more-btn">Read More</button>
-						</Link>
-					</div>
-					<div class="service-box">
-						<h3>Healthcare Business Consultancy</h3>
-						<Link to="/healthcare_training">
-							<button class="read-more-btn">Read More</button>
-						</Link>
-					</div>
-					<div class="service-box">
-						<h3>Healthcare Training</h3>
-						<Link to="/healthcare_business_consultation">
-							<button class="read-more-btn">Read More</button>
-						</Link>
-					</div>
-				</div>
-			</div> */}
 			<div class="services-section">
 				<div class="services-container">
 					<div class="service-box">
@@ -398,6 +357,13 @@ export function Home() {
 							<button class="read-more-btn">Read More</button>
 						</Link>
 					</div>
+					{/* <div class="service-box">
+						<img src={DomCare} alt="children care services" />
+						<h3>Children Care Services</h3>
+						<Link to="/children-care-services">
+							<button class="read-more-btn">Read More</button>
+						</Link>
+					</div> */}
 					<div class="service-box">
 						<img src={LiveIn} alt="slive-in care" />
 						<h3>Live-In Care</h3>

@@ -7,6 +7,7 @@ import Bookings from "./pages/Bookings/Bookings";
 import { Contact } from "./pages/Contact/Contact";
 import { Home } from "./pages/Home/Home";
 import Domiciliary_Care from "./pages/Services/domiciliary_care/domiciliary_care";
+import Children_Care_Services from "./pages/Services/children_care_services/children_care_services";
 import Healthcare_Business_Consultation from "./pages/Services/healthcare_business_consultation/healthcare_business_consultation";
 import Healthcare_Recruitment from "./pages/Services/healthcare_recruitment/healthcare_recruitment";
 import Healthcare_Training from "./pages/Services/healthcare_training/healthcare_training";
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/domiciliary-care",
     element: <Domiciliary_Care />,
+  },
+  {
+    path: "/children-care-services",
+    element: <Children_Care_Services />,
   },
   {
     path: "/live-in-care",

@@ -24,6 +24,15 @@ const Services = () => {
       link: "/domiciliary-care",
     },
     {
+      icon: "fa-solid fa-heart",
+      title: "Children Care Services",
+      description1:
+        "At Doodles Stick, we are dedicated to providing a safe, nurturing, and therapeutic home environment for children and young people aged 8 to 18.",
+      description2:
+        "Our approach combines therapeutic care with individualized support plans, ensuring each young person can develop at their own pace and in their own way.",
+      link: "/children-care-services",
+    },
+    {
       icon: "fa-regular fa-clock",
       title: "Live-in Care/24hrs",
       description1:
@@ -33,7 +42,7 @@ const Services = () => {
       link: "/live-in-care",
     },
     {
-      icon: "fa-solid fa-id-card-clip",
+      icon: "fa-solid fa-plus",
       title: "Healthcare Recruitment",
       description1:
         "We recruit a wide range of healthcare professionals who are then placed with other care facilities to work as permanent, contract or temporary agency staffing basis.",
