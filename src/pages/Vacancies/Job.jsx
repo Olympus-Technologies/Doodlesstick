@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
-import { useEffect, useState } from "react";
+import { Seo } from "../../components/Seo";
 import "./Job.css";
 import HealthCareAssistant from "./Jobs/HealthCareAssistant";
 import SupportWorkers from "./Jobs/SupportWorker";
@@ -10,31 +10,50 @@ import CareTeamLeader from "./Jobs/CareTeamLeader";
 import Doctors from "./Jobs/Doctors";
 import Nurses from "./Jobs/Nurses";
 
+const JOB_TITLES = {
+	health_care_assistant: "Health Care Assistant",
+	support_workers: "Support Workers",
+	care_manager: "Care Manager",
+	care_team_leader: "Care Team Leader",
+	doctors: "Doctors",
+	nurses: "Nurses",
+};
+
 export function Job() {
-  const [searchParams, _setSearchParams] = useSearchParams();
-  const [jobID, setJobID] = useState(null)
+	const [searchParams] = useSearchParams();
+	const jobID = searchParams.get("slug");
 
-  const pages = {
-    health_care_assistant: <HealthCareAssistant />,
-    support_workers: <SupportWorkers />,
-    care_manager: <CareManager />,
-    care_team_leader: <CareTeamLeader />,
-    doctors: <Doctors />,
-    nurses: <Nurses />
-  }
+	const pages = {
+		health_care_assistant: <HealthCareAssistant />,
+		support_workers: <SupportWorkers />,
+		care_manager: <CareManager />,
+		care_team_leader: <CareTeamLeader />,
+		doctors: <Doctors />,
+		nurses: <Nurses />,
+	};
 
-  useEffect(() => {
-    setJobID(searchParams.get("slug"));
-  }, []);
+	const jobTitle = JOB_TITLES[jobID] || "Job Vacancy";
 
-  return (
-    <>
-      <Navbar />
-      {/* <h1 className="job-listing-title">Job Listing</h1> */}
-      <section className="job-listing-detail" style={{ marginTop: "50px" }}>
-        {pages[jobID]}
-      </section>
-      <Footer />
-    </>
-  )
+	return (
+		<>
+			<Seo
+				path={`/job?slug=${jobID || ""}`}
+				title={`${jobTitle} Job | Doodlesstick Limited — Northampton`}
+				description={`Apply for the ${jobTitle} position at Doodlesstick Limited in Northamptonshire. Download the application form and start your career in healthcare today.`}
+			/>
+			<Navbar />
+
+			<main>
+				<section className="job-listing-detail">
+					{pages[jobID] || (
+					<div className="job-container">
+						<p className="title">Job not found.</p>
+					</div>
+					)}
+				</section>
+			</main>
+
+			<Footer />
+		</>
+	);
 }

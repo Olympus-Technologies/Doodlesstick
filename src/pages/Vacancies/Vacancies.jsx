@@ -1,64 +1,52 @@
 import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
-import "./Vacancies.css"
+import { Seo } from "../../components/Seo";
+import { Reveal } from "../../components/Reveal";
+import "./Vacancies.css";
+
+const jobs = [
+	{ title: "Health Care Assistant", slug: "health_care_assistant" },
+	{ title: "Support Workers", slug: "support_workers" },
+	{ title: "Care Manager", slug: "care_manager" },
+	{ title: "Care Team Leader", slug: "care_team_leader" },
+	{ title: "Doctors", slug: "doctors" },
+	{ title: "Nurses", slug: "nurses" },
+];
 
 export function Vacancies() {
+	return (
+		<>
+			<Seo
+				path="/vacancies"
+				title="Vacancies & Careers | Doodlesstick Limited — Northampton"
+				description="Join Doodlesstick Limited. We are recruiting healthcare assistants, support workers, care managers, care team leaders, doctors and nurses across Northamptonshire."
+			/>
+			<Navbar />
 
-  const jobs = [
-    {
-      title: "Health Care Assistant",
-      slug: "health_care_assistant",
-      applyLink: "path/to/your/form-or-requirements.pdf",
-    },
-    {
-      title: "Support Workers",
-      slug: "support_workers",
-      applyLink: "path/to/your/form-or-requirements.pdf",
-    },
-    {
-      title: "Care Manager",
-      slug: "care_manager",
-      applyLink: "path/to/your/form-or-requirements.pdf",
-    },
-    {
-      title: "Care Team Leader",
-      slug: "care_team_leader",
-      applyLink: "path/to/your/form-or-requirements.pdf",
-    },
-    {
-      title: "Doctors",
-      slug: "doctors",
-      applyLink: "path/to/your/form-or-requirements.pdf",
-    },
-    {
-      title: "Nurses",
-      slug: "nurses",
-      applyLink: "path/to/your/form-or-requirements.pdf",
-    },
-  ];
+			<main>
+				<section className="job-listing" aria-labelledby="jobs-title">
+					<h1 id="jobs-title" className="job-listing-title">
+						Job Listing
+					</h1>
+					<div id="job-container" className="job-container">
+						{jobs.map((job) => (
+							<Reveal className="job-box" key={job.slug} delay={80}>
+								<div className="job-title">
+									<h2>{job.title}</h2>
+								</div>
+								<div className="apply-button">
+									<Link to={`/job?slug=${job.slug}`}>
+										View Job
+									</Link>
+								</div>
+							</Reveal>
+						))}
+					</div>
+				</section>
+			</main>
 
-  return (
-    <>
-      <Navbar />
-      <h1 className="job-listing-title">Job Listing</h1>
-      <section className="job-listing">
-        <div id="job-container" className="job-container">
-          {jobs.map((e) => {
-            return (<>
-              <div className="job-box">
-                <div class="job-title">
-                  <h2>{e.title}</h2>
-                </div>
-                <div class="apply-button">
-                  <Link to={`/job?slug=${e.slug}`}>View Job</Link>
-                </div>
-              </div>
-            </>)
-          })}
-        </div>
-      </section>
-      <Footer />
-    </>
-  )
+			<Footer />
+		</>
+	);
 }

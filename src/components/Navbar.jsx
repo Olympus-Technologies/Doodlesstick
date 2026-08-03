@@ -1,253 +1,198 @@
-import { useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "../images/logo.webp";
+import { SITE, SERVICE_LINKS } from "../data/site";
 import "./Navbar.css";
 
 export function Navbar() {
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [servicesOpen, setServicesOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+	const location = useLocation();
+
 	useEffect(() => {
-		// Handling of the cart pop-out
-		//document.addEventListener("DOMContentLoaded", function () {
-		//  const cartIcon = document.querySelector(".cart");
-		//  const cartPopout = document.querySelector(".cart-popout");
-		//  const closeBtn = document.querySelector(".close-btn");
-		//
-		//  cartIcon.addEventListener("click", function () {
-		//    cartPopout.classList.add("active");
-		//  });
-		//
-		//  closeBtn.addEventListener("click", function () {
-		//    cartPopout.classList.remove("active");
-		//  });
-		//});
+		setMenuOpen(false);
+		setServicesOpen(false);
+	}, [location.pathname]);
 
-		// JavaScript for toggling the mobile menu
-		document
-			.getElementById("menuIcon")
-			?.addEventListener("click", function () {
-				document.getElementById("mobileMenu")?.classList.add("active");
-			});
-
-		document
-			.getElementById("closeBtn")
-			?.addEventListener("click", function () {
-				document
-					.getElementById("mobileMenu")
-					?.classList.remove("active");
-			});
-
-		// our services dropdown section
-		document
-			.querySelector(".dropdown > a")
-			.addEventListener("click", function (event) {
-				if (window.innerWidth <= 768) {
-					// Only trigger on mobile screens
-					event.preventDefault(); // Prevent default behavior
-					const dropdownContent = this.nextElementSibling;
-					dropdownContent.style.display =
-						dropdownContent.style.display === "block"
-							? "none"
-							: "block";
-				}
-			});
-
-		// Close dropdown if clicking outside of it
-		window.addEventListener("click", function (event) {
-			if (!event.target.matches(".dropdown > a")) {
-				const dropdowns =
-					document.querySelectorAll(".dropdown-content");
-				dropdowns.forEach(function (dropdown) {
-					if (dropdown.style.display === "block") {
-						dropdown.style.display = "none";
-					}
-				});
-			}
-		});
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 24);
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
+	useEffect(() => {
+		const onKey = (event) => {
+			if (event.key === "Escape" && menuOpen) setMenuOpen(false);
+		};
+		document.addEventListener("keydown", onKey);
+		return () => document.removeEventListener("keydown", onKey);
+	}, [menuOpen]);
+
 	return (
-		<>
-			<nav className="navbar">
+		<header className={`navbar ${scrolled ? "is-scrolled" : ""}`}>
+			<div className="navbar-inner">
 				<div className="logo">
-					<NavLink to="/">
-						<img src={Logo} alt="logo" />
-					</NavLink>
+					<Link to="/" aria-label={`${SITE.shortName} — Home`}>
+						<img src={Logo} alt={`${SITE.shortName} logo`} />
+						<span className="logo-wordmark">
+							<span className="logo-wordmark-name">{SITE.shortName}</span>
+							<span className="logo-wordmark-tag">
+								Specialist Healthcare
+							</span>
+						</span>
+					</Link>
 				</div>
-				<div className="navlinks">
+
+				<nav className="navlinks" aria-label="Main navigation">
 					<ul>
-						<li id="home">
-							<NavLink
-								to="/"
-								className={({ isActive, isPending }) =>
-									isActive ? "active" : ""
-								}
-							>
-								HOME
+						<li>
+							<NavLink to="/" end>
+								Home
 							</NavLink>
 						</li>
 						<li className="dropdown">
 							<NavLink to="/services" className="dropdown-link">
-								OUR SERVICES
+								Our Services
+								<i
+									className="fas fa-chevron-down dropdown-caret"
+									aria-hidden="true"
+								/>
 							</NavLink>
 							<div className="dropdown-content">
-								<Link to="/supported-living">
-									Supported Living
-								</Link>
-								<Link to="/domiciliary-care">
-									Domiciliary Care
-								</Link>
-								<Link to="/children-care-services">
-									Children Care Services
-								</Link>
-								<Link to="/live-in-care">
-									Live in Care/24hrs
-								</Link>
-								<Link to="/healthcare-recruitment">
-									Healthcare Recruitment
-								</Link>
-								<Link to="/healthcare-business-consultation">
-									Healthcare Business Consultation
-								</Link>
-								<Link to="/healthcare-training">
-									Healthcare Training
-								</Link>
+								{SERVICE_LINKS.map((s) => (
+									<Link key={s.to} to={s.to}>
+										<span className="dropdown-link-label">
+											{s.label}
+										</span>
+										<i
+											className="fas fa-arrow-right"
+											aria-hidden="true"
+										/>
+									</Link>
+								))}
 							</div>
 						</li>
 						<li>
-							<NavLink to="/about-us">ABOUT US</NavLink>
+							<NavLink to="/about-us">About Us</NavLink>
 						</li>
 						<li>
-							<NavLink to="/contact-us">CONTACT US</NavLink>
+							<NavLink to="/contact-us">Contact Us</NavLink>
 						</li>
-						<li id="vacancies">
-							<NavLink to="/vacancies">VACANCIES</NavLink>
+						<li>
+							<NavLink to="/vacancies">Vacancies</NavLink>
 						</li>
 					</ul>
+				</nav>
+
+				<div className="nav-cta">
+					<a href={`tel:${SITE.phone}`} className="call-btn">
+						<i className="fa fa-phone" aria-hidden="true" />
+						<span className="call-btn-text">
+							{SITE.phone.replace(/(.{5})/, "$1 ")}
+						</span>
+					</a>
+					<Link to="/bookings" className="book-btn">
+						Book a Session
+					</Link>
 				</div>
 
-				<div className="mobile-menu" id="mobileMenu">
-					<div className="close-btn" id="closeBtn">
-						&times;
+				<button
+					type="button"
+					className="menu-icon"
+					aria-label="Open navigation menu"
+					aria-expanded={menuOpen}
+					aria-controls="mobileMenu"
+					onClick={() => setMenuOpen(true)}
+				>
+					<span className="hamburger">
+						<span />
+						<span />
+						<span />
+					</span>
+				</button>
+			</div>
+
+			<div
+				className={`mobile-menu ${menuOpen ? "active" : ""}`}
+				id="mobileMenu"
+				aria-hidden={!menuOpen}
+			>
+				<div className="mobile-menu-header">
+					<div className="logo">
+						<img src={Logo} alt={`${SITE.shortName} logo`} />
+						<span className="logo-wordmark">
+							<span className="logo-wordmark-name">{SITE.shortName}</span>
+						</span>
 					</div>
+					<button
+						type="button"
+						className="close-btn"
+						aria-label="Close navigation menu"
+						onClick={() => setMenuOpen(false)}
+					>
+						&times;
+					</button>
+				</div>
+				<nav aria-label="Mobile navigation">
 					<ul>
 						<li>
-							<NavLink
-								to="/"
-								className={({ isActive, isPending }) =>
-									isActive ? "active" : ""
-								}
-							>
-								HOME
+							<NavLink to="/" end>
+								Home
 							</NavLink>
 						</li>
 						<li>
-							<NavLink
-								to="/services"
-								className={({ isActive, isPending }) =>
-									isActive ? "active" : ""
-								}
+							<button
+								type="button"
+								className={`mobile-services-toggle ${
+									servicesOpen ? "open" : ""
+								}`}
+								onClick={() => setServicesOpen((v) => !v)}
+								aria-expanded={servicesOpen}
 							>
-								OUR SERVICES
-							</NavLink>
+								Our Services
+								<i
+									className="fas fa-chevron-down"
+									aria-hidden="true"
+								/>
+							</button>
+							<ul
+								className={`mobile-services ${
+									servicesOpen ? "open" : ""
+								}`}
+							>
+								{SERVICE_LINKS.map((s) => (
+									<li key={s.to}>
+										<Link to={s.to}>{s.label}</Link>
+									</li>
+								))}
+							</ul>
 						</li>
 						<li>
-							<NavLink
-								to="/about-us"
-								className={({ isActive, isPending }) =>
-									isActive ? "active" : ""
-								}
-							>
-								ABOUT US
-							</NavLink>
+							<NavLink to="/about-us">About Us</NavLink>
 						</li>
 						<li>
-							<NavLink
-								to="/contact-us"
-								className={({ isActive, isPending }) =>
-									isActive ? "active" : ""
-								}
-							>
-								CONTACT US
-							</NavLink>
+							<NavLink to="/contact-us">Contact Us</NavLink>
 						</li>
 						<li>
-							<NavLink
-								to="/vacancies"
-								className={({ isActive, isPending }) =>
-									isActive ? "active" : ""
-								}
+							<NavLink to="/vacancies">Vacancies</NavLink>
+						</li>
+						<li className="mobile-cta-row">
+							<Link to="/bookings" className="btn btn-mint">
+								Book a Session
+							</Link>
+							<a
+								href={`tel:${SITE.phone}`}
+								className="mobile-call"
 							>
-								VACANCIES
-							</NavLink>
+								<i className="fa fa-phone" aria-hidden="true" />
+								{SITE.phone}
+							</a>
 						</li>
 					</ul>
-				</div>
-
-				{/* <div className="flex space-x-9 items-center">
-					<div className="call">
-						<a href="tel:+1234567890" className="call-icon">
-							<i className="fa fa-phone"></i>
-						</a>
-						<div className="call-numbers">
-							<a href="tel:+1234567890" className="text-sm">
-								01604216476
-							</a>
-							<a href="tel:+07737493075" className="text-sm">
-								07737493075
-							</a>
-						</div>
-					</div>
-				</div> */}
-				<div className="menu-icon" id="menuIcon">
-					&#9776;
-				</div>
-			</nav>
-		</>
+				</nav>
+			</div>
+		</header>
 	);
 }
-
-// Cart popup
-//<div id="cart-popout" className="cart-popout">
-//  <div className="header">
-//    <span id="close-cart-btn" className="close-btn">
-//      &gt;
-//    </span>
-//    <h2>Cart</h2>
-//  </div>
-//  <div id="cart-body" className="body">
-//    <p>Your cart is currently empty.</p>
-//  </div>
-//  <div id="cart-total" className="total-amount">
-//    Total Amount: $0.00
-//  </div>
-//  <button id="buy-now-btn" className="buy-now-btn">
-//    Buy Now
-//  </button>
-//</div>
-//
-// Cart Button
-//<div>
-//  <i className="fas fa-shopping-bag cart-icon"></i>
-//  <span id="cart-count" className="cart-count">
-//    0
-//  </span>
-//</div>
-//
-// Login
-//
-//<div className="avatar">
-//  <a href="./login/login.html">
-//    <div className="avatar-circle">
-//      <svg
-//        className="person-icon"
-//        xmlns="http://www.w3.org/2000/svg"
-//        viewBox="0 0 24 24"
-//        fill="white"
-//        width="24px"
-//        height="24px"
-//      >
-//        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-//      </svg>
-//    </div>
-//    <h3 className="font-medium">Login</h3>
-//  </a>
-//</div>

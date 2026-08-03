@@ -1,132 +1,170 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
-import "./Contact.css"
-import { Loader } from "google-maps";
-import file from "../../assets/hospital.jpg"
+import { Seo } from "../../components/Seo";
+import { Reveal } from "../../components/Reveal";
+import { SITE } from "../../data/site";
+import "./Contact.css";
+
+const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
+	"Suite G7, Moulton Park Business Centre, Redhouse Road, Northampton, NN3 6AQ"
+)}&output=embed`;
+
+const emptyForm = {
+	first_name: "",
+	last_name: "",
+	email: "",
+	message: "",
+};
 
 export function Contact() {
+	const [form, setForm] = useState(emptyForm);
 
-  const [form, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    message: ""
-  })
+	const updateField = (field) => (event) => {
+		setForm({ ...form, [field]: event.currentTarget.value });
+	};
 
-  const submit = (e) => {
-    e.preventDefault();
-    let formData = new FormData(e.target);
-    let data = {
-      first_name: formData.get("first_name"),
-      last_name: formData.get("last_name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    }
-    const body = `
-Hello Doodlesstick Team,
-My name is ${data.first_name} ${data.last_name}.
-${data.message}
-`
-    setFormData({
-      first_name: "",
-      last_name: "",
-      email: "",
-      message: ""
-    })
-    console.log(body)
-    const mailtoLink = `mailto:doodlesstick09@gmail.com?subject=${encodeURIComponent("Doodlesstick Inquiry")}&body=${encodeURIComponent(body)}`;
-    const a = document.createElement('a');
-    a.href = mailtoLink;
-    a.target = '_blank';  // Open in a new tab
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+	const submit = (event) => {
+		event.preventDefault();
+		const body = `Hello Doodlesstick Team,\nMy name is ${form.first_name} ${form.last_name}.\n${form.message}\n\nReply to: ${form.email}`;
+		const mailtoLink = `mailto:${SITE.email}?subject=${encodeURIComponent(
+			"Doodlesstick Inquiry"
+		)}&body=${encodeURIComponent(body)}`;
+		const a = document.createElement("a");
+		a.href = mailtoLink;
+		a.target = "_blank";
+		a.rel = "noopener noreferrer";
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		setForm(emptyForm);
+	};
 
-  // const load = async () => {
-  //   const options = {/* todo */ };
-  //   const loader = new Loader('AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg', options);
+	return (
+		<>
+			<Seo
+				path="/contact-us"
+				title="Contact Us | Doodlesstick Limited — Northampton Healthcare"
+				description="Contact Doodlesstick Limited for supported living, domiciliary care, live-in care, recruitment, training and CQC business consultancy in Northampton. Call 01604216476 or email info@doodlesstick.com."
+			/>
+			<Navbar />
 
-  //   const google = await loader.load();
-  //   const location = { lat: 52.24048, lng: -0.902656 };
-  //   const map = new google.maps.Map(document.getElementById("map"), {
-  //     zoom: 15,
-  //     center: location,
-  //   });
+			<main>
+				<section className="contact-header" aria-labelledby="contact-title">
+					<h1 id="contact-title">Contact Us</h1>
+				</section>
 
-  //   const marker = new google.maps.Marker({
-  //     position: location,
-  //     map: map,
-  //   });
+				<section className="contact-us">
+					<div className="contact-container">
+						<Reveal className="left-section">
+							<div className="map-frame">
+								<iframe
+									title="Doodlesstick Limited location map"
+									src={MAP_EMBED_URL}
+									width="100%"
+									height="100%"
+									style={{ border: 0 }}
+									loading="lazy"
+									referrerPolicy="no-referrer-when-downgrade"
+									allowFullScreen
+								/>
+							</div>
+						</Reveal>
 
-  //   const streetViewService = new google.maps.StreetViewService();
-  //   const panorama = new google.maps.StreetViewPanorama(
-  //     document.getElementById("map"),
-  //     {
-  //       position: location,
-  //       pov: {
-  //         heading: 34,
-  //         pitch: 10,
-  //       },
-  //     }
-  //   );
+						<Reveal className="contact-details" delay={100}>
+							<div className="location-info">
+								<h3>Our Location</h3>
+								<p>
+									<strong>Address:</strong> {SITE.address.street},{" "}
+									{SITE.address.addressLine},{" "}
+									{SITE.address.city}, {SITE.address.postcode}.
+								</p>
+								<p>
+									<strong>Phone:</strong>{" "}
+									<a href={`tel:${SITE.phone}`}>
+										{SITE.phone}
+									</a>
+									,{" "}
+									<a href={`tel:${SITE.phoneAlt}`}>
+										{SITE.phoneAlt}
+									</a>
+								</p>
+								<p>
+									<strong>Email:</strong>{" "}
+									<a href={`mailto:${SITE.email}`}>
+										{SITE.email}
+									</a>
+								</p>
+								<p className="contact-note">
+									Contact us for the best health care advice.
+								</p>
+							</div>
 
-  //   map.setStreetView(panorama);
-  // }
+							<div className="feedback-form">
+								<h3>Leave Us a Message</h3>
+								<form onSubmit={submit} noValidate>
+									<div className="form-group">
+										<label htmlFor="first-name">
+											First Name:
+										</label>
+										<input
+											type="text"
+											id="first-name"
+											name="first_name"
+											value={form.first_name}
+											onChange={updateField("first_name")}
+											required
+											autoComplete="given-name"
+										/>
+									</div>
+									<div className="form-group">
+										<label htmlFor="last-name">
+											Last Name:
+										</label>
+										<input
+											type="text"
+											id="last-name"
+											name="last_name"
+											value={form.last_name}
+											onChange={updateField("last_name")}
+											required
+											autoComplete="family-name"
+										/>
+									</div>
+									<div className="form-group">
+										<label htmlFor="email">Email:</label>
+										<input
+											type="email"
+											id="email"
+											name="email"
+											value={form.email}
+											onChange={updateField("email")}
+											required
+											autoComplete="email"
+										/>
+									</div>
+									<div className="form-group">
+										<label htmlFor="message">
+											Your Message:
+										</label>
+										<textarea
+											id="message"
+											name="message"
+											rows="5"
+											value={form.message}
+											onChange={updateField("message")}
+											required
+										/>
+									</div>
+									<button type="submit">Send Message</button>
+								</form>
+							</div>
+						</Reveal>
+					</div>
+				</section>
+			</main>
 
-  useEffect(() => {
-    // load()
-  }, [])
-
-  return (
-    <>
-      <Navbar />
-      <h1 className="contact-header">Contact Us</h1>
-      <section className="contact-us">
-        <div className="contact-container">
-          <div className="left-section">
-            {/* <div id="map"></div> */}
-            <img src={file} style={{borderRadius: "16px", margin: "0 auto", objectFit: "cover", width: "100%", height: "100%"}}/>
-          </div>
-
-          <div className="contact-details">
-            <div className="location-info">
-              <h3 style={{ textAlign: "center" }}>Our Location</h3>
-              <p><strong>Address:</strong> Suite G7, Moulton Park Business Centre, Redhouse Road, Northampton, NN3 6AQ.</p>
-              <p><strong>Phone:</strong> <a href="tel:01604216476">01604216476</a>,
-                <a href="tel:07737493075">07737493075</a></p>
-              <p><strong>Email:</strong> <a href="mailto:info@doodlesstick.com">info@doodlesstick.com</a></p>
-              <p style={{ fontStyle: "italic", color: "rgb(15,92,15)" }}>Contact us for the best health care advice.
-              </p>
-            </div>
-
-            <div className="feedback-form">
-              <h3 style={{ textAlign: "center" }}>Leave Us a Message</h3>
-              <form onSubmit={(e) => submit(e)}>
-                <div className="form-group">
-                  <label for="first-name">First Name:</label>
-                  <input value={form.first_name} onChange={(e) => setFormData({...form, first_name: e.currentTarget.value})} type="text" id="first-name" name="first_name" required />
-                </div>
-                <div className="form-group">
-                  <label for="last-name">Last Name:</label>
-                  <input value={form.last_name} onChange={(e) => setFormData({...form, last_name: e.currentTarget.value})} type="text" id="last-name" name="last_name" required />
-                </div>
-                <div className="form-group">
-                  <label for="email">Email:</label>
-                  <input value={form.email} onChange={(e) => setFormData({...form, email: e.currentTarget.value})} type="email" id="email" name="email" required />
-                </div>
-                <div className="form-group">
-                  <label for="message">Your Message:</label>
-                  <textarea value={form.message} onChange={(e) => setFormData({...form, message: e.currentTarget.value})} id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-      <Footer />
-    </>
-  )
+			<Footer />
+		</>
+	);
 }

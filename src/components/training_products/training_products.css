@@ -1,0 +1,286 @@
+.training-section {
+	padding: 96px 0;
+	background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
+	overflow: hidden;
+}
+
+.training-header {
+	text-align: center;
+	margin-bottom: 48px;
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.training-title {
+	margin-bottom: 12px;
+}
+
+.training-lead {
+	margin: 0 auto;
+	max-width: 640px;
+}
+
+/* Slider */
+.training-slider {
+	position: relative;
+}
+
+.training-slider .slick-list {
+	margin: 0 -12px;
+	padding: 8px 0 12px;
+	overflow: hidden;
+}
+
+.training-slider .slick-slide {
+	padding: 0 12px;
+}
+
+/* Card */
+.training-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: var(--shadow-sm);
+	transition: transform 0.3s var(--ease), box-shadow 0.3s ease,
+		border-color 0.3s ease;
+}
+
+.training-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--shadow-lg);
+	border-color: rgba(13, 92, 69, 0.3);
+}
+
+.training-card-media {
+	position: relative;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	background: var(--mint-soft);
+}
+
+.training-card-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.45s var(--ease);
+}
+
+.training-card:hover .training-card-media img {
+	transform: scale(1.06);
+}
+
+.training-quick-view {
+	position: absolute;
+	left: 12px;
+	right: 12px;
+	bottom: 12px;
+	padding: 10px 18px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	background: var(--brand);
+	border: none;
+	border-radius: var(--radius-pill);
+	cursor: pointer;
+	box-shadow: 0 10px 24px rgba(6, 42, 32, 0.3);
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.25s ease, transform 0.25s var(--ease),
+		background-color 0.2s ease;
+}
+
+.training-card:hover .training-quick-view,
+.training-quick-view:focus-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.training-quick-view:hover {
+	background: var(--brand-dark);
+}
+
+.training-card-body {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	flex: 1;
+}
+
+.training-card-title {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.45;
+	color: var(--ink);
+}
+
+.training-card-footer {
+	margin-top: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	border-top: 1px solid var(--line);
+	padding-top: 14px;
+}
+
+.training-price {
+	font-size: 18px;
+	font-weight: 800;
+	color: var(--brand);
+	letter-spacing: -0.01em;
+}
+
+.training-badge {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--muted);
+	background: var(--cream);
+	border: 1px solid var(--line);
+	padding: 4px 10px;
+	border-radius: var(--radius-pill);
+}
+
+/* Dots */
+.training-slider .slick-dots {
+	position: static;
+	bottom: auto;
+	margin-top: 32px;
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+}
+
+.training-slider .slick-dots li {
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+
+.training-slider .slick-dots li button {
+	width: 10px;
+	height: 10px;
+	padding: 0;
+}
+
+.training-slider .slick-dots li button::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--brand);
+	opacity: 0.22;
+	font-size: 0;
+}
+
+.training-slider .slick-dots li.slick-active button::before {
+	opacity: 1;
+	background: var(--brand);
+}
+
+/* Arrows */
+.training-slider .slick-prev,
+.training-slider .slick-next {
+	width: 46px;
+	height: 46px;
+	z-index: 5;
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 50%;
+	box-shadow: var(--shadow-sm);
+	transition: background-color 0.25s ease, border-color 0.25s ease,
+		box-shadow 0.25s ease, transform 0.25s var(--ease);
+}
+
+.training-slider .slick-prev {
+	left: -58px;
+}
+
+.training-slider .slick-next {
+	right: -58px;
+}
+
+.training-slider .slick-prev::before,
+.training-slider .slick-next::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-left: 2px solid var(--brand);
+	border-bottom: 2px solid var(--brand);
+	opacity: 1;
+	transition: border-color 0.25s ease;
+}
+
+.training-slider .slick-prev::before {
+	transform: rotate(45deg);
+	margin-left: 4px;
+}
+
+.training-slider .slick-next::before {
+	transform: rotate(-135deg);
+	margin-right: 4px;
+}
+
+.training-slider .slick-prev:hover,
+.training-slider .slick-next:hover,
+.training-slider .slick-prev:focus,
+.training-slider .slick-next:focus {
+	background: var(--brand);
+	border-color: var(--brand);
+	box-shadow: 0 12px 28px rgba(13, 92, 69, 0.3);
+}
+
+.training-slider .slick-prev:hover::before,
+.training-slider .slick-prev:focus::before,
+.training-slider .slick-next:hover::before,
+.training-slider .slick-next:focus::before {
+	border-color: #ffffff;
+}
+
+.training-slider .slick-prev.slick-disabled,
+.training-slider .slick-next.slick-disabled {
+	opacity: 0.35;
+	pointer-events: none;
+}
+
+@media (max-width: 1320px) {
+	.training-slider .slick-prev {
+		left: -14px;
+	}
+
+	.training-slider .slick-next {
+		right: -14px;
+	}
+}
+
+@media (max-width: 768px) {
+	.training-section {
+		padding: 72px 0;
+	}
+
+	.training-slider .slick-prev,
+	.training-slider .slick-next {
+		display: none !important;
+	}
+
+	.training-quick-view {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.training-card-body {
+		padding: 16px;
+	}
+}

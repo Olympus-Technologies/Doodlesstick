@@ -1,151 +1,219 @@
+.about-header {
+	position: relative;
+	overflow: hidden;
+	padding: 170px 20px 90px;
+	text-align: center;
+	background: linear-gradient(
+			140deg,
+			rgba(9, 58, 44, 0.94),
+			rgba(6, 42, 32, 0.9)
+		),
+		linear-gradient(135deg, var(--brand), var(--brand-deep));
+}
+
+.about-header::before {
+	content: "";
+	position: absolute;
+	top: -120px;
+	left: -120px;
+	width: 380px;
+	height: 380px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(79, 209, 165, 0.4), transparent 65%);
+	filter: blur(50px);
+}
+
+.about-header::after {
+	content: "";
+	position: absolute;
+	bottom: -140px;
+	right: -100px;
+	width: 420px;
+	height: 420px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(230, 177, 92, 0.28), transparent 65%);
+	filter: blur(50px);
+}
+
 .about-header h1 {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 120px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    color: white;
-    background-color: #104a2e;
-    max-width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
+	display: inline-block;
+	font-size: clamp(32px, 5vw, 54px);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border-radius: 0;
+	box-shadow: none;
+	position: relative;
+	z-index: 1;
 }
 
 .mission-statement {
-    text-align: center;
-    font-size: 15px;
-    color: #104a2e;
-    font-style: oblique;
+	text-align: center;
+	padding: 56px 20px 10px;
+	color: var(--brand);
 }
 
-/* Slideshow container */
+.mission-statement h2 {
+	font-size: clamp(26px, 3.4vw, 36px);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	margin: 0;
+	text-transform: capitalize;
+	color: var(--ink);
+}
+
+/* Slideshow */
+.mission-slider {
+	max-width: 860px;
+	margin: 0 auto;
+	padding: 28px 20px 50px;
+}
+
 .slideshow-container {
-    height: 100px;
-    /* background: #f1f1f1f1; */
+	background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+	border-radius: var(--radius-lg);
+	padding: 44px 32px;
+	min-height: 160px;
+	display: flex;
+	align-items: center;
+	box-shadow: var(--shadow-lg);
+	border: 1px solid rgba(79, 209, 165, 0.25);
 }
 
-/* Slides */
+.slideshow-container .slick-list,
+.slideshow-container .slick-track,
+.slideshow-container .slick-slide {
+	display: flex;
+}
+
+.slideshow-container .slick-slide {
+	align-items: center;
+}
+
+.slideshow-container .slick-dots {
+	bottom: 12px;
+}
+
+.slideshow-container .slick-dots li button:before {
+	font-size: 10px;
+	color: #ffffff;
+	opacity: 0.5;
+}
+
+.slideshow-container .slick-dots li.slick-active button:before {
+	color: var(--mint);
+	opacity: 1;
+}
+
 .mySlides {
-    display: none;
-    text-align: center;
-    color: #104a2e;
-    font-weight: bold;
+	text-align: center;
+	color: #ffffff;
+	width: 100%;
+	padding: 10px 16px;
 }
 
-/* Next & previous buttons */
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -30px;
-    padding: 16px;
-    color: #888;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-    position: absolute;
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-}
-
-/* The dot/bullet/indicator container */
-.dot-container {
-    text-align: center;
-    padding: 20px;
-    /* background: #ddd; */
-}
-
-/* The dots/bullets/indicators */
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-/* background color to the active dot/circle */
-.dot:hover {
-    background-color: #104a2e;
-}
-
-.dot.active {
-    background-color: #104a2e;
-
+.mySlides p {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.7;
+	margin: 0;
 }
 
 /* About Doodlesstick Section */
 .about-doodlesstick {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #f4f4f4;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+	padding: 40px 20px 90px;
+	background-color: var(--cream);
+	border-top: 1px solid var(--line);
 }
 
 .about-image {
-    flex: 1;
-    padding: 10px;
+	flex: 1;
+	padding: 10px;
+	width: 100%;
+	max-width: 520px;
 }
 
 .about-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+	border: 1px solid var(--line);
 }
 
 .about-text {
-    flex: 2;
-    padding: 10px;
-    color: #104a2e;
-    text-align: center;
+	flex: 2;
+	padding: 10px;
+	color: var(--ink);
+	text-align: center;
 }
 
 .about-text h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+	font-size: clamp(26px, 3.4vw, 34px);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: var(--ink);
+	margin-bottom: 14px;
 }
 
 .about-text p {
-    font-size: 16px;
-    line-height: 1.6;
+	font-size: 16px;
+	line-height: 1.7;
+	color: var(--muted);
+	max-width: 620px;
+	margin: 0 auto;
 }
 
+/* Media query for larger screens */
+@media (min-width: 768px) {
+	.about-doodlesstick {
+		flex-direction: row;
+		align-items: flex-start;
+		text-align: left;
+		padding: 64px 40px 90px;
+	}
 
+	.about-text {
+		text-align: left;
+	}
 
-/* Media query for larger screens (e.g., tablets and desktops) */
-@media(min-width: 768px) {
-    .about-doodlesstick {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-    }
+	.about-text p {
+		margin: 0;
+	}
+}
 
-    .about-image {
-        flex: 1;
-        padding: 10px;
-    }
+@media (max-width: 480px) {
+	.about-header {
+		padding: 130px 20px 64px;
+	}
 
-    .about-text {
-        flex: 2;
-        padding: 10px;
-    }
+	.about-header h1 {
+		font-size: 32px;
+	}
+
+	.slideshow-container {
+		padding: 30px 14px;
+		min-height: 180px;
+	}
+
+	.mySlides p {
+		font-size: 15px;
+	}
+
+	.about-text h2 {
+		font-size: 24px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.slideshow-container {
+		animation: none;
+	}
 }

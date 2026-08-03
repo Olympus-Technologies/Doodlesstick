@@ -1,33 +1,50 @@
 .coming-soon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(100vh - 160px);
+	padding: 60px 20px;
+	position: relative;
 }
 
 .back-button {
-    position: absolute;
-    left: 20px;
-    top: 110px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: black;
+	position: absolute;
+	left: 20px;
+	top: 100px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+	color: #104a2e;
+	transition: color 0.3s ease;
 }
 
 .back-button:hover {
-    color: #0056b3;
+	color: #6ccca4;
 }
 
 .coming-soon-image {
-    max-width: 80%;
-    height: auto;
+	max-width: 320px;
+	width: 80%;
+	height: auto;
+	margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 44px;
-    font-style: oblique;
+.coming-soon-title {
+	font-size: 36px;
+	font-style: oblique;
+	color: #104a2e;
+	margin: 0;
+}
+
+@media (max-width: 480px) {
+	.back-button {
+		top: 80px;
+		left: 12px;
+	}
+
+	.coming-soon-title {
+		font-size: 28px;
+	}
 }

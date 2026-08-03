@@ -15,12 +15,15 @@ import Live_In_Care from "./pages/Services/live_in_care/live_in_care";
 import Services from "./pages/Services/Services";
 import Supported_Living from "./pages/Services/supported_living/supported_living";
 import { Vacancies } from "./pages/Vacancies/Vacancies";
-import SupportedLiving from "./pages/Services/supported_living/SupportedLiving";
 import { HeadProvider } from "react-head";
 import { Job } from "./pages/Vacancies/Job";
 import ComingSoon from "./components/training_products/coming_soon";
+import { AppLayout } from "./components/AppLayout";
 
 const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
   {
     path: "/",
     element: <Home />,
@@ -80,6 +83,8 @@ const router = createBrowserRouter([
   {
     path: "/coming-soon",
     element: <ComingSoon />
+  }
+    ]
   }
 ]);
 

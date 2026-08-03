@@ -1,105 +1,139 @@
 .job-listing {
-    text-align: center;
-    padding: 2rem;
+	text-align: center;
+	padding: 150px 24px 80px;
+	background-color: var(--cream);
+	min-height: 100vh;
 }
 
 .job-listing-detail {
-    padding: 2rem;
+	padding: 2rem;
 }
 
 .job-listing-title {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 120px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    color: white;
-    background-color: #104a2e;
-    max-width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
+	font-size: clamp(28px, 4vw, 42px);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 48px;
+	padding: 20px 40px;
+	color: #ffffff;
+	background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+	max-width: max-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: var(--radius-pill);
+	box-shadow: var(--shadow-lg);
+	border: 1px solid rgba(79, 209, 165, 0.3);
 }
 
 /* Job Box */
 .job-box {
-    background-color: #104a2e;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
-    width: 90%;
-    max-width: 800px;
-    margin: 10px auto;
-    /* flex-direction: column; */
+	background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+	padding: 24px 28px;
+	border-radius: var(--radius-md);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+	width: 90%;
+	max-width: 800px;
+	margin: 14px auto;
+	box-shadow: var(--shadow-sm);
+	border: 1px solid rgba(79, 209, 165, 0.2);
+	transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+		border-color 0.3s ease;
+}
+
+.job-box:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+	border-color: rgba(79, 209, 165, 0.5);
 }
 
 /* Job Title */
 .job-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.job-title h2 {
+	margin: 0;
 }
 
 /* Apply Button */
 .apply-button a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    border: 2px solid #fff;
-    color: #fff;
-    background-color: transparent;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+	display: inline-block;
+	padding: 12px 26px;
+	border: 2px solid var(--mint);
+	color: var(--mint);
+	background-color: transparent;
+	border-radius: var(--radius-pill);
+	text-decoration: none;
+	font-weight: 700;
+	transition: background-color 0.3s, color 0.3s;
 }
 
 .apply-button a:hover {
-    background-color: #fff;
-    color: #104a2e;
+	background-color: var(--mint);
+	color: var(--brand-deep);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .job-listing-title {
-        font-size: 1.5rem;
-        margin-top: 80px;
-    }
+	.job-listing {
+		padding: 120px 20px 64px;
+	}
 
-    .job-box {
-        width: 95%;
-        flex-direction: column;
-        align-items: center;
-    }
+	.job-listing-title {
+		font-size: 30px;
+		padding: 16px 28px;
+	}
 
-    .job-title {
-        font-size: 1.125rem;
-    }
+	.job-box {
+		width: 95%;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 14px;
+	}
 
-    .apply-button a {
-        padding: 0.5rem;
-        font-size: 1rem;
-    }
+	.job-title {
+		font-size: 1.125rem;
+	}
+
+	.apply-button a {
+		padding: 10px 22px;
+		font-size: 1rem;
+	}
 }
 
 @media (max-width: 480px) {
-    .job-listing-title {
-        font-size: 1.25rem;
-        margin-top: 60px;
-    }
+	.job-listing {
+		padding: 100px 16px 56px;
+	}
 
-    .job-box {
-        width: 100%;
-    }
+	.job-listing-title {
+		font-size: 26px;
+	}
 
-    .job-title {
-        font-size: 1rem;
-    }
+	.job-box {
+		width: 100%;
+	}
 
-    .apply-button a {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.875rem;
-    }
+	.job-title {
+		font-size: 1rem;
+	}
+
+	.apply-button a {
+		padding: 0.5rem 0.75rem;
+		font-size: 0.875rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.job-box:hover {
+		transform: none;
+	}
 }
