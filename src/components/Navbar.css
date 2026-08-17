@@ -247,7 +247,7 @@
 
 /* Nested sub-dropdown inside Our Services */
 .dropdown-sub {
-	position: relative;
+	position: static;
 }
 
 .dropdown-sub-trigger {
