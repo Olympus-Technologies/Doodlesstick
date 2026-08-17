@@ -1,0 +1,628 @@
+/* ============================================================
+   ADHD Section Styles
+   ============================================================ */
+
+/* Hero variant for ADHD pages */
+.adhd-hero {
+	position: relative;
+	overflow: hidden;
+	padding: 170px 24px 100px;
+	text-align: center;
+	background: linear-gradient(
+			140deg,
+			rgba(9, 58, 44, 0.96),
+			rgba(6, 42, 32, 0.92)
+		),
+		linear-gradient(135deg, var(--brand), var(--brand-deep));
+}
+
+.adhd-hero::before {
+	content: "";
+	position: absolute;
+	top: -140px;
+	right: -100px;
+	width: 420px;
+	height: 420px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(79, 209, 165, 0.35), transparent 65%);
+	filter: blur(50px);
+	pointer-events: none;
+}
+
+.adhd-hero::after {
+	content: "";
+	position: absolute;
+	bottom: -120px;
+	left: -80px;
+	width: 360px;
+	height: 360px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(230, 177, 92, 0.25), transparent 65%);
+	filter: blur(50px);
+	pointer-events: none;
+}
+
+.adhd-hero .eyebrow {
+	color: var(--mint);
+}
+
+.adhd-hero .eyebrow::before {
+	background: linear-gradient(90deg, var(--mint), transparent);
+}
+
+.adhd-hero h1 {
+	font-size: clamp(32px, 5vw, 54px);
+	font-weight: 800;
+	color: #ffffff;
+	letter-spacing: -0.02em;
+	margin-bottom: 16px;
+	position: relative;
+	z-index: 1;
+}
+
+.adhd-hero .lead {
+	max-width: 660px;
+	margin: 0 auto;
+	color: rgba(255, 255, 255, 0.84);
+	font-size: 18px;
+	line-height: 1.7;
+	position: relative;
+	z-index: 1;
+}
+
+.adhd-hero .hero-ctas {
+	display: flex;
+	gap: 14px;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 32px;
+	position: relative;
+	z-index: 1;
+}
+
+/* ADHD content sections */
+.adhd-section {
+	padding: 88px 24px;
+}
+
+.adhd-section--alt {
+	background: var(--mint-soft);
+}
+
+.adhd-section-inner {
+	max-width: 1060px;
+	margin: 0 auto;
+}
+
+.adhd-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 28px;
+	margin-top: 40px;
+}
+
+.adhd-card {
+	background: var(--surface);
+	border-radius: var(--radius-md);
+	padding: 36px 30px;
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--line);
+	transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.adhd-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-md);
+}
+
+.adhd-card-icon {
+	width: 52px;
+	height: 52px;
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 22px;
+	color: #ffffff;
+	background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+	margin-bottom: 20px;
+}
+
+.adhd-card h3 {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	color: var(--ink);
+}
+
+.adhd-card p {
+	color: var(--muted);
+	font-size: 15px;
+	line-height: 1.7;
+}
+
+/* Process timeline */
+.adhd-timeline {
+	position: relative;
+	max-width: 700px;
+	margin: 48px auto 0;
+	padding-left: 48px;
+}
+
+.adhd-timeline::before {
+	content: "";
+	position: absolute;
+	left: 18px;
+	top: 0;
+	bottom: 0;
+	width: 3px;
+	background: linear-gradient(180deg, var(--mint), var(--brand));
+	border-radius: 3px;
+}
+
+.adhd-timeline-step {
+	position: relative;
+	margin-bottom: 36px;
+	padding: 24px 28px;
+	background: var(--surface);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--line);
+}
+
+.adhd-timeline-step::before {
+	content: attr(data-step);
+	position: absolute;
+	left: -48px;
+	top: 24px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(13, 92, 69, 0.3);
+	z-index: 1;
+}
+
+.adhd-timeline-step h3 {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 6px;
+	color: var(--ink);
+}
+
+.adhd-timeline-step p {
+	font-size: 15px;
+	color: var(--muted);
+	line-height: 1.65;
+}
+
+/* FAQ accordion */
+.adhd-faq-item {
+	background: var(--surface);
+	border-radius: var(--radius-md);
+	margin-bottom: 12px;
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--line);
+	overflow: hidden;
+}
+
+.adhd-faq-q {
+	width: 100%;
+	background: none;
+	border: none;
+	padding: 20px 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--ink);
+	text-align: left;
+	transition: background-color 0.2s ease;
+}
+
+.adhd-faq-q:hover {
+	background: var(--mint-soft);
+}
+
+.adhd-faq-q i {
+	font-size: 12px;
+	color: var(--brand);
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+}
+
+.adhd-faq-item.open .adhd-faq-q i {
+	transform: rotate(180deg);
+}
+
+.adhd-faq-a {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.35s var(--ease);
+}
+
+.adhd-faq-item.open .adhd-faq-a {
+	max-height: 500px;
+}
+
+.adhd-faq-a-inner {
+	padding: 0 24px 20px;
+	font-size: 15px;
+	color: var(--muted);
+	line-height: 1.7;
+}
+
+/* Service highlight banner */
+.adhd-banner {
+	background: linear-gradient(135deg, var(--brand-dark), var(--brand) 60%, var(--brand-dark));
+	border-radius: var(--radius-lg);
+	padding: 52px 40px;
+	text-align: center;
+	color: #ffffff;
+	position: relative;
+	overflow: hidden;
+}
+
+.adhd-banner::before {
+	content: "";
+	position: absolute;
+	top: -80px;
+	right: -60px;
+	width: 260px;
+	height: 260px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(79, 209, 165, 0.28), transparent 65%);
+	pointer-events: none;
+}
+
+.adhd-banner h2 {
+	font-size: clamp(24px, 3.5vw, 34px);
+	font-weight: 800;
+	color: #ffffff;
+	margin-bottom: 12px;
+	position: relative;
+	z-index: 1;
+}
+
+.adhd-banner p {
+	color: rgba(255, 255, 255, 0.82);
+	font-size: 16px;
+	max-width: 560px;
+	margin: 0 auto 28px;
+	position: relative;
+	z-index: 1;
+}
+
+.adhd-banner .btn {
+	position: relative;
+	z-index: 1;
+}
+
+/* NHS badge */
+.adhd-nhs-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: #ffffff;
+	color: var(--brand-dark);
+	padding: 12px 24px;
+	border-radius: var(--radius-pill);
+	font-weight: 700;
+	font-size: 14px;
+	box-shadow: var(--shadow-md);
+}
+
+.adhd-nhs-badge i {
+	color: var(--brand);
+}
+
+/* Info box */
+.adhd-info-box {
+	background: var(--mint-soft);
+	border-left: 4px solid var(--brand);
+	border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+	padding: 20px 24px;
+	margin: 24px 0;
+}
+
+.adhd-info-box p {
+	font-size: 15px;
+	color: var(--ink);
+	line-height: 1.7;
+	margin: 0;
+}
+
+.adhd-info-box strong {
+	color: var(--brand-dark);
+}
+
+/* Warning box */
+.adhd-warning-box {
+	background: #fff8e6;
+	border-left: 4px solid var(--gold);
+	border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+	padding: 20px 24px;
+	margin: 24px 0;
+}
+
+.adhd-warning-box p {
+	font-size: 15px;
+	color: var(--ink);
+	line-height: 1.7;
+	margin: 0;
+}
+
+/* List styles for ADHD content */
+.adhd-content-list {
+	list-style: none;
+	padding: 0;
+	margin: 16px 0;
+}
+
+.adhd-content-list li {
+	padding: 8px 0 8px 28px;
+	position: relative;
+	font-size: 15px;
+	line-height: 1.65;
+	color: var(--ink);
+}
+
+.adhd-content-list li::before {
+	content: "✓";
+	position: absolute;
+	left: 0;
+	color: var(--brand);
+	font-weight: 800;
+}
+
+/* Booking form styles */
+.adhd-booking {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 88px 24px;
+}
+
+.adhd-booking-progress {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+}
+
+.adhd-booking-progress .dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--line);
+	transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.adhd-booking-progress .dot.active {
+	background: var(--brand);
+	transform: scale(1.3);
+}
+
+.adhd-booking-progress .dot.done {
+	background: var(--mint);
+}
+
+.adhd-booking-card {
+	background: var(--surface);
+	border-radius: var(--radius-lg);
+	padding: 40px 36px;
+	box-shadow: var(--shadow-md);
+	border: 1px solid var(--line);
+}
+
+.adhd-booking-card h2 {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 6px;
+	color: var(--ink);
+}
+
+.adhd-booking-card .step-subtitle {
+	color: var(--muted);
+	font-size: 15px;
+	margin-bottom: 28px;
+}
+
+.adhd-form-group {
+	margin-bottom: 20px;
+}
+
+.adhd-form-group label {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--ink);
+	margin-bottom: 6px;
+}
+
+.adhd-form-group label .optional {
+	font-weight: 400;
+	color: var(--muted);
+	font-size: 13px;
+}
+
+.adhd-input,
+.adhd-select,
+.adhd-textarea {
+	width: 100%;
+	padding: 12px 16px;
+	border-radius: var(--radius-sm);
+	border: 1.5px solid var(--line);
+	font-size: 15px;
+	color: var(--ink);
+	background: var(--surface);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	font-family: "Sora", sans-serif;
+}
+
+.adhd-input:focus,
+.adhd-select:focus,
+.adhd-textarea:focus {
+	outline: none;
+	border-color: var(--brand);
+	box-shadow: 0 0 0 3px rgba(13, 92, 69, 0.12);
+}
+
+.adhd-textarea {
+	min-height: 100px;
+	resize: vertical;
+}
+
+.adhd-option-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 10px;
+}
+
+.adhd-option-btn {
+	padding: 14px 18px;
+	border-radius: var(--radius-sm);
+	border: 1.5px solid var(--line);
+	background: var(--surface);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--ink);
+	text-align: left;
+	transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+	font-family: "Sora", sans-serif;
+}
+
+.adhd-option-btn:hover {
+	border-color: var(--brand);
+	background: var(--mint-soft);
+}
+
+.adhd-option-btn.selected {
+	border-color: var(--brand);
+	background: var(--brand);
+	color: #ffffff;
+}
+
+.adhd-checkbox-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.adhd-checkbox-row input[type="checkbox"] {
+	margin-top: 3px;
+	width: 18px;
+	height: 18px;
+	accent-color: var(--brand);
+}
+
+.adhd-checkbox-row label {
+	font-size: 14px;
+	color: var(--ink);
+	line-height: 1.5;
+}
+
+.adhd-btn-row {
+	display: flex;
+	gap: 12px;
+	margin-top: 32px;
+}
+
+.adhd-btn-row .btn {
+	flex: 1;
+}
+
+.adhd-back-btn {
+	background: transparent;
+	color: var(--muted);
+	border: 1.5px solid var(--line);
+	padding: 14px 28px;
+	border-radius: var(--radius-pill);
+	font-weight: 700;
+	font-size: 15px;
+	cursor: pointer;
+	transition: border-color 0.2s ease, color 0.2s ease;
+	font-family: "Sora", sans-serif;
+}
+
+.adhd-back-btn:hover {
+	border-color: var(--brand);
+	color: var(--brand);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.adhd-hero {
+		padding: 140px 18px 70px;
+	}
+
+	.adhd-section {
+		padding: 56px 18px;
+	}
+
+	.adhd-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.adhd-timeline {
+		padding-left: 36px;
+	}
+
+	.adhd-timeline::before {
+		left: 12px;
+	}
+
+	.adhd-timeline-step::before {
+		left: -36px;
+		width: 28px;
+		height: 28px;
+		font-size: 12px;
+	}
+
+	.adhd-banner {
+		padding: 36px 24px;
+	}
+
+	.adhd-booking {
+		padding: 56px 16px;
+	}
+
+	.adhd-booking-card {
+		padding: 28px 20px;
+	}
+
+	.adhd-option-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.adhd-btn-row {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 480px) {
+	.adhd-hero h1 {
+		font-size: 28px;
+	}
+
+	.adhd-hero .lead {
+		font-size: 16px;
+	}
+
+	.adhd-hero .hero-ctas {
+		flex-direction: column;
+		align-items: center;
+	}
+}

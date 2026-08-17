@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "../images/logo.webp";
-import { SITE, SERVICE_LINKS, NAV_LINKS } from "../data/site";
+import { SITE, SERVICE_LINKS, NAV_LINKS, ADHD_LINKS } from "../data/site";
 import "./Footer.css";
 
 const socials = [
@@ -95,6 +95,17 @@ export function Footer() {
 						<h4>Our Services</h4>
 						<ul>
 							{SERVICE_LINKS.map((service) => (
+								<li key={service.to}>
+									<Link to={service.to}>{service.label}</Link>
+								</li>
+							))}
+						</ul>
+					</div>
+
+					<div className="footer-col">
+						<h4>ADHD Services</h4>
+						<ul>
+							{ADHD_LINKS.filter((s) => s.to !== "/adhd").map((service) => (
 								<li key={service.to}>
 									<Link to={service.to}>{service.label}</Link>
 								</li>

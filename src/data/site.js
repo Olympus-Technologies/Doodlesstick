@@ -38,6 +38,19 @@ export const SERVICE_LINKS = [
 	{ to: "/healthcare-training", label: "Healthcare Training" },
 ];
 
+export const ADHD_LINKS = [
+	{ to: "/adhd", label: "ADHD Assessment & Treatment" },
+	{ to: "/adhd/private-assessment", label: "Private ADHD Assessment" },
+	{ to: "/adhd/treatment", label: "ADHD Treatment & Medication" },
+	{ to: "/adhd/assessment-process", label: "Our Assessment Process" },
+	{ to: "/adhd/nhs-right-to-choose", label: "NHS Right to Choose" },
+	{ to: "/adhd/for-professionals", label: "For GPs & Healthcare Professionals" },
+	{ to: "/adhd/existing-diagnosis", label: "Existing ADHD Diagnosis" },
+	{ to: "/adhd/faqs", label: "ADHD FAQs" },
+	{ to: "/adhd/book", label: "Book an ADHD Assessment" },
+	{ to: "/adhd/enquiry", label: "Make an Enquiry" },
+];
+
 export const NAV_LINKS = [
 	{ to: "/", label: "Home" },
 	{ to: "/services", label: "Our Services" },

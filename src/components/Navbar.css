@@ -239,6 +239,37 @@
 	display: none;
 }
 
+.dropdown-divider {
+	height: 1px;
+	background: var(--line);
+	margin: 6px 14px;
+}
+
+.dropdown-group-label {
+	padding: 10px 14px 4px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.mobile-services-group-label {
+	padding: 10px 16px 4px !important;
+	font-size: 11px !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--muted);
+	margin-bottom: 2px;
+}
+
+.mobile-services-group-label:hover {
+	background: none !important;
+	color: var(--muted) !important;
+	padding-left: 16px !important;
+}
+
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
 	visibility: visible;

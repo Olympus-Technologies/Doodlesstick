@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import Logo from "../images/logo.webp";
-import { SITE, SERVICE_LINKS } from "../data/site";
+import { SITE, SERVICE_LINKS, ADHD_LINKS } from "../data/site";
 import "./Navbar.css";
 
 export function Navbar() {
@@ -62,6 +62,19 @@ export function Navbar() {
 							</NavLink>
 							<div className="dropdown-content">
 								{SERVICE_LINKS.map((s) => (
+									<Link key={s.to} to={s.to}>
+										<span className="dropdown-link-label">
+											{s.label}
+										</span>
+										<i
+											className="fas fa-arrow-right"
+											aria-hidden="true"
+										/>
+									</Link>
+								))}
+								<div className="dropdown-divider" />
+								<div className="dropdown-group-label">ADHD Services</div>
+								{ADHD_LINKS.map((s) => (
 									<Link key={s.to} to={s.to}>
 										<span className="dropdown-link-label">
 											{s.label}
@@ -163,6 +176,14 @@ export function Navbar() {
 								}`}
 							>
 								{SERVICE_LINKS.map((s) => (
+									<li key={s.to}>
+										<Link to={s.to}>{s.label}</Link>
+									</li>
+								))}
+								<li className="mobile-services-group-label">
+									ADHD Services
+								</li>
+								{ADHD_LINKS.map((s) => (
 									<li key={s.to}>
 										<Link to={s.to}>{s.label}</Link>
 									</li>

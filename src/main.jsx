@@ -19,6 +19,16 @@ import { HeadProvider } from "react-head";
 import { Job } from "./pages/Vacancies/Job";
 import ComingSoon from "./components/training_products/coming_soon";
 import { AppLayout } from "./components/AppLayout";
+import ADHD from "./pages/ADHD/ADHD";
+import PrivateAssessment from "./pages/ADHD/PrivateAssessment";
+import Treatment from "./pages/ADHD/Treatment";
+import AssessmentProcess from "./pages/ADHD/AssessmentProcess";
+import NhsRightToChoose from "./pages/ADHD/NhsRightToChoose";
+import ForProfessionals from "./pages/ADHD/ForProfessionals";
+import ExistingDiagnosis from "./pages/ADHD/ExistingDiagnosis";
+import Faqs from "./pages/ADHD/Faqs";
+import BookAssessment from "./pages/ADHD/BookAssessment";
+import Enquiry from "./pages/ADHD/Enquiry";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +93,46 @@ const router = createBrowserRouter([
   {
     path: "/coming-soon",
     element: <ComingSoon />
+  },
+  {
+    path: "/adhd",
+    element: <ADHD />,
+  },
+  {
+    path: "/adhd/private-assessment",
+    element: <PrivateAssessment />,
+  },
+  {
+    path: "/adhd/treatment",
+    element: <Treatment />,
+  },
+  {
+    path: "/adhd/assessment-process",
+    element: <AssessmentProcess />,
+  },
+  {
+    path: "/adhd/nhs-right-to-choose",
+    element: <NhsRightToChoose />,
+  },
+  {
+    path: "/adhd/for-professionals",
+    element: <ForProfessionals />,
+  },
+  {
+    path: "/adhd/existing-diagnosis",
+    element: <ExistingDiagnosis />,
+  },
+  {
+    path: "/adhd/faqs",
+    element: <Faqs />,
+  },
+  {
+    path: "/adhd/book",
+    element: <BookAssessment />,
+  },
+  {
+    path: "/adhd/enquiry",
+    element: <Enquiry />,
   }
     ]
   }
