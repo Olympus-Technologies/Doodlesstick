@@ -7,12 +7,14 @@ import "./Navbar.css";
 export function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [servicesOpen, setServicesOpen] = useState(false);
+	const [adhdOpen, setAdhdOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const location = useLocation();
 
 	useEffect(() => {
 		setMenuOpen(false);
 		setServicesOpen(false);
+		setAdhdOpen(false);
 	}, [location.pathname]);
 
 	useEffect(() => {
@@ -73,18 +75,25 @@ export function Navbar() {
 									</Link>
 								))}
 								<div className="dropdown-divider" />
-								<div className="dropdown-group-label">ADHD Services</div>
-								{ADHD_LINKS.map((s) => (
-									<Link key={s.to} to={s.to}>
-										<span className="dropdown-link-label">
-											{s.label}
-										</span>
-										<i
-											className="fas fa-arrow-right"
-											aria-hidden="true"
-										/>
-									</Link>
-								))}
+								<div className="dropdown-sub">
+									<span className="dropdown-sub-trigger">
+										<i className="fas fa-puzzle-piece" aria-hidden="true" />
+										ADHD Services
+									</span>
+									<div className="dropdown-sub-menu">
+										{ADHD_LINKS.map((s) => (
+											<Link key={s.to} to={s.to}>
+												<span className="dropdown-link-label">
+													{s.label}
+												</span>
+												<i
+													className="fas fa-arrow-right"
+													aria-hidden="true"
+												/>
+											</Link>
+										))}
+									</div>
+								</div>
 							</div>
 						</li>
 						<li>
@@ -180,14 +189,36 @@ export function Navbar() {
 										<Link to={s.to}>{s.label}</Link>
 									</li>
 								))}
-								<li className="mobile-services-group-label">
-									ADHD Services
+								<li>
+									<button
+										type="button"
+										className={`mobile-services-toggle mobile-adhd-toggle ${
+											adhdOpen ? "open" : ""
+										}`}
+										onClick={(e) => {
+											e.stopPropagation();
+											setAdhdOpen((v) => !v);
+										}}
+										aria-expanded={adhdOpen}
+									>
+										ADHD Services
+										<i
+											className="fas fa-chevron-down"
+											aria-hidden="true"
+										/>
+									</button>
+									<ul
+										className={`mobile-services mobile-adhd-sub ${
+											adhdOpen ? "open" : ""
+										}`}
+									>
+										{ADHD_LINKS.map((s) => (
+											<li key={s.to}>
+												<Link to={s.to}>{s.label}</Link>
+											</li>
+										))}
+									</ul>
 								</li>
-								{ADHD_LINKS.map((s) => (
-									<li key={s.to}>
-										<Link to={s.to}>{s.label}</Link>
-									</li>
-								))}
 							</ul>
 						</li>
 						<li>

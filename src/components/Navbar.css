@@ -193,7 +193,7 @@
 	top: calc(100% + 12px);
 	background: rgba(255, 255, 255, 0.97);
 	backdrop-filter: blur(14px);
-	min-width: 300px;
+	min-width: 340px;
 	box-shadow: var(--shadow-lg);
 	z-index: 1001;
 	border-radius: var(--radius-md);
@@ -245,29 +245,83 @@
 	margin: 6px 14px;
 }
 
-.dropdown-group-label {
-	padding: 10px 14px 4px;
-	font-size: 11px;
-	font-weight: 700;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--muted);
+/* Nested sub-dropdown inside Our Services */
+.dropdown-sub {
+	position: relative;
 }
 
-.mobile-services-group-label {
-	padding: 10px 16px 4px !important;
-	font-size: 11px !important;
-	font-weight: 700 !important;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--muted);
-	margin-bottom: 2px;
+.dropdown-sub-trigger {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 14px;
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 14px;
+	color: var(--ink);
+	cursor: default;
+	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.mobile-services-group-label:hover {
-	background: none !important;
-	color: var(--muted) !important;
-	padding-left: 16px !important;
+.dropdown-sub-trigger i {
+	font-size: 13px;
+	color: var(--brand);
+	width: 16px;
+	text-align: center;
+}
+
+.dropdown-sub:hover .dropdown-sub-trigger {
+	background: var(--mint-soft);
+	color: var(--brand);
+}
+
+.dropdown-sub-menu {
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	left: calc(100% + 6px);
+	top: -10px;
+	background: rgba(255, 255, 255, 0.97);
+	backdrop-filter: blur(14px);
+	min-width: 280px;
+	box-shadow: var(--shadow-lg);
+	z-index: 1002;
+	border-radius: var(--radius-md);
+	padding: 10px;
+	border: 1px solid var(--line);
+	transform: translateX(-6px);
+	transition: opacity 0.2s ease, transform 0.2s var(--ease),
+		visibility 0.2s;
+}
+
+.dropdown-sub:hover .dropdown-sub-menu {
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(0);
+}
+
+/* Mobile nested ADHD sub-toggle */
+.mobile-adhd-toggle {
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	color: var(--brand) !important;
+	padding-left: 28px !important;
+}
+
+.mobile-adhd-sub {
+	display: none;
+	padding-left: 14px;
+}
+
+.mobile-adhd-sub.open {
+	display: block;
+}
+
+.mobile-adhd-sub li a {
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	padding: 10px 14px !important;
 }
 
 .dropdown:hover .dropdown-content,
