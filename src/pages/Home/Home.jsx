@@ -23,6 +23,7 @@ import Slide1 from "../../images/slider 7.jpg";
 import Slide6 from "../../images/slider6.jpg";
 import SupportedLiving from "../../images/suported-living.jpg";
 import Training from "../../images/training.jpg";
+import MentalHealth from "../../images/mental_health_awareness.webp";
 import "./Home.css";
 import Training_Products from "../../components/training_products/training_products";
 
@@ -79,6 +80,14 @@ const serviceBoxes = [
 		title: "Healthcare Training",
 		blurb: "Fully accredited face-to-face training.",
 		to: "/healthcare-training",
+	},
+	{
+		image: MentalHealth,
+		alt: "ADHD assessment and treatment services",
+		title: "ADHD Services",
+		blurb: "Expert assessment, diagnosis and treatment for ADHD.",
+		to: "/adhd",
+		wide: true,
 	},
 ];
 
@@ -293,7 +302,7 @@ export function Home() {
 							</Reveal>
 							<Reveal delay={160}>
 								<p className="section-lead">
-									Six specialist services, one promise — the
+									Seven specialist services, one promise — the
 									highest standard of care, delivered with
 									warmth across Northamptonshire and the
 									Midlands.
