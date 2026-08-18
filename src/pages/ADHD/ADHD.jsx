@@ -11,24 +11,36 @@ const adhdServices = [
 		title: "ADHD Assessments",
 		desc: "Comprehensive assessments exploring symptoms, developmental history and the impact on everyday functioning.",
 		to: "/adhd/private-assessment",
+		accent: "#0d5c45",
+		accentLight: "rgba(13,92,69,0.08)",
+		accentGlow: "rgba(13,92,69,0.18)",
 	},
 	{
 		icon: "fa-solid fa-stethoscope",
 		title: "ADHD Diagnosis",
 		desc: "A diagnosis based on developmental history, functional impairment, supporting information and recognised diagnostic criteria.",
 		to: "/adhd/private-assessment",
+		accent: "#4fd1a5",
+		accentLight: "rgba(79,209,165,0.08)",
+		accentGlow: "rgba(79,209,165,0.18)",
 	},
 	{
 		icon: "fa-solid fa-pills",
 		title: "ADHD Treatment",
 		desc: "Individualised treatment including medication, titration, monitoring, psychoeducation and psychological support.",
 		to: "/adhd/treatment",
+		accent: "#e6b15c",
+		accentLight: "rgba(230,177,92,0.08)",
+		accentGlow: "rgba(230,177,92,0.18)",
 	},
 	{
 		icon: "fa-solid fa-heart-pulse",
 		title: "Medication Management",
 		desc: "Ongoing clinical monitoring, medication reviews, shared care arrangements and non-medication support options.",
 		to: "/adhd/treatment",
+		accent: "#093a2c",
+		accentLight: "rgba(9,58,44,0.08)",
+		accentGlow: "rgba(9,58,44,0.18)",
 	},
 ];
 
@@ -107,36 +119,39 @@ const ADHD = () => {
 					</div>
 				</section>
 
-				<section className="adhd-section" aria-labelledby="adhd-services-title">
-					<div className="adhd-section-inner">
-						<Reveal>
-							<div className="eyebrow eyebrow--center">
-								What We Offer
-							</div>
-							<h2 id="adhd-services-title" className="section-title" style={{ textAlign: "center" }}>
-								Our ADHD <span className="accent">Services</span>
-							</h2>
-							<p className="section-lead">
-								Doodlesstick provides person-centred ADHD assessment, diagnosis
-								and treatment services delivered within an appropriate clinical
-								governance framework.
-							</p>
-						</Reveal>
-						<div className="adhd-grid">
-							{adhdServices.map((s, i) => (
-								<Reveal key={s.title} delay={i * 80}>
-									<Link to={s.to} className="adhd-card spotlight" style={{ textDecoration: "none" }}>
-										<div className="adhd-card-icon">
-											<i className={s.icon} aria-hidden="true" />
-										</div>
+			<section className="adhd-section" aria-labelledby="adhd-services-title">
+				<div className="adhd-section-inner">
+					<Reveal>
+						<div className="eyebrow eyebrow--center">
+							What We Offer
+						</div>
+						<h2 id="adhd-services-title" className="section-title" style={{ textAlign: "center" }}>
+							Our ADHD <span className="accent">Services</span>
+						</h2>
+						<p className="section-lead">
+							Doodlesstick provides person-centred ADHD assessment, diagnosis
+							and treatment services delivered within an appropriate clinical
+							governance framework.
+						</p>
+					</Reveal>
+					<div className="adhd-features">
+						{adhdServices.map((s, i) => (
+							<Reveal key={s.title} delay={i * 80}>
+								<Link to={s.to} className="adhd-feature-row" style={{ textDecoration: "none", "--accent": s.accent, "--accent-light": s.accentLight, "--accent-glow": s.accentGlow }}>
+									<div className="adhd-feature-icon">
+										<i className={s.icon} aria-hidden="true" />
+									</div>
+									<div className="adhd-feature-content">
 										<h3>{s.title}</h3>
 										<p>{s.desc}</p>
-									</Link>
-								</Reveal>
-							))}
-						</div>
+									</div>
+									<i className="fa-solid fa-arrow-right adhd-feature-arrow" aria-hidden="true" />
+								</Link>
+							</Reveal>
+						))}
 					</div>
-				</section>
+				</div>
+			</section>
 
 				<section className="adhd-section adhd-section--alt" aria-labelledby="adhd-expect-title">
 					<div className="adhd-section-inner">
@@ -173,31 +188,31 @@ const ADHD = () => {
 					</div>
 				</section>
 
-				<section className="adhd-section" aria-labelledby="adhd-explore-title">
-					<div className="adhd-section-inner">
-						<Reveal>
-							<div className="eyebrow eyebrow--center">
-								Explore
-							</div>
-							<h2 id="adhd-explore-title" className="section-title" style={{ textAlign: "center" }}>
-								More About Our <span className="accent">ADHD Services</span>
-							</h2>
-						</Reveal>
-						<div className="adhd-grid">
-							{quickLinks.map((s, i) => (
-								<Reveal key={s.title} delay={i * 80}>
-									<Link to={s.to} className="adhd-card spotlight" style={{ textDecoration: "none" }}>
-										<div className="adhd-card-icon">
-											<i className={s.icon} aria-hidden="true" />
-										</div>
-										<h3>{s.title}</h3>
-										<p>{s.desc}</p>
-									</Link>
-								</Reveal>
-							))}
+			<section className="adhd-section" aria-labelledby="adhd-explore-title">
+				<div className="adhd-section-inner">
+					<Reveal>
+						<div className="eyebrow eyebrow--center">
+							Explore
 						</div>
+						<h2 id="adhd-explore-title" className="section-title" style={{ textAlign: "center" }}>
+							More About Our <span className="accent">ADHD Services</span>
+						</h2>
+					</Reveal>
+					<div className="adhd-links">
+						{quickLinks.map((s, i) => (
+							<Reveal key={s.title} delay={i * 80}>
+								<Link to={s.to} className="adhd-link-card" style={{ textDecoration: "none" }}>
+									<div className="adhd-link-card-icon">
+										<i className={s.icon} aria-hidden="true" />
+									</div>
+									<h3>{s.title}</h3>
+									<i className="fa-solid fa-chevron-right adhd-link-card-chevron" aria-hidden="true" />
+								</Link>
+							</Reveal>
+						))}
 					</div>
-				</section>
+				</div>
+			</section>
 
 				<section className="adhd-section" aria-labelledby="adhd-existing-title">
 					<div className="adhd-section-inner">
