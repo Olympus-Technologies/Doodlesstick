@@ -623,3 +623,32 @@
 		backdrop-filter: none;
 	}
 }
+
+/* Desktop: always use absolute dropdowns (overrides hover:none on touchscreen laptops) */
+@media (min-width: 1024px) {
+	.dropdown-content {
+		position: absolute;
+		box-shadow: var(--shadow-lg);
+		min-width: 320px;
+		left: 0;
+		top: calc(100% + 12px);
+		background: rgba(255, 255, 255, 0.97);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-md);
+		padding: 10px;
+		backdrop-filter: blur(14px);
+	}
+
+	.dropdown-sub-menu {
+		position: absolute;
+		box-shadow: var(--shadow-lg);
+		min-width: 300px;
+		left: calc(100% + 6px);
+		top: 0;
+		background: rgba(255, 255, 255, 0.97);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-md);
+		padding: 8px;
+		backdrop-filter: blur(14px);
+	}
+}
