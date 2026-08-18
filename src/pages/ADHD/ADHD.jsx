@@ -205,7 +205,10 @@ const ADHD = () => {
 									<div className="adhd-link-card-icon">
 										<i className={s.icon} aria-hidden="true" />
 									</div>
-									<h3>{s.title}</h3>
+									<div className="adhd-link-card-text">
+										<h3>{s.title}</h3>
+										<p className="adhd-link-card-desc">{s.desc}</p>
+									</div>
 									<i className="fa-solid fa-chevron-right adhd-link-card-chevron" aria-hidden="true" />
 								</Link>
 							</Reveal>
